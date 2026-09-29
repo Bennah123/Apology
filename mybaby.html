@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Sylvia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0a0b;--card:#151112;--txt:#f6efe9;--soft:#b9aaa3;--rose:#e8a0a8;--gold:#d9b98a}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Inter',system-ui,sans-serif;line-height:1.7;overflow-x:hidden}
+.screen{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:80px 22px;text-align:center;position:relative}
+.screen:nth-of-type(1){background:radial-gradient(800px 500px at 50% 30%,rgba(232,160,168,.10),transparent 70%)}
+.inner{max-width:620px;width:100%}
+.serif{font-family:'Playfair Display',serif}
+h1,h2{font-family:'Playfair Display',serif;font-weight:500;line-height:1.15;margin-bottom:20px}
+h1{font-size:clamp(40px,9vw,72px)}
+h2{font-size:clamp(28px,5.5vw,44px)}
+.kicker{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.lead{color:var(--soft);font-size:clamp(16px,2.2vw,19px)}
+.heart{width:84px;height:84px;margin:0 auto 28px;animation:beat 2.6s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s cubic-bezier(.22,1,.36,1)}
+.reveal.in{opacity:1;transform:none}
+.btn{display:inline-block;font-family:inherit;font-size:15px;letter-spacing:.06em;padding:15px 34px;border-radius:999px;border:1px solid rgba(217,185,138,.4);background:transparent;color:var(--txt);cursor:pointer;margin-top:34px;transition:background .2s,transform .15s,border-color .2s}
+.btn:hover{background:rgba(217,185,138,.1);border-color:var(--gold);transform:translateY(-2px)}
+.btn.rose{border-color:rgba(232,160,168,.5)}
+.btn.rose:hover{background:rgba(232,160,168,.12);border-color:var(--rose)}
+.letter{text-align:left;font-size:clamp(17px,2.4vw,21px);line-height:1.9}
+.letter p{margin-bottom:22px}
+.sig{font-family:'Playfair Display',serif;font-size:22px;color:var(--gold);margin-top:34px}
+.divider{width:60px;height:1px;background:var(--gold);opacity:.5;margin:0 auto 34px}
+.choices{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.outcome{display:none;margin-top:10px}
+.outcome.on{display:block;animation:fade 1s ease}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+#music{position:fixed;top:16px;right:16px;z-index:10;display:flex;align-items:center;gap:10px;background:rgba(21,17,18,.85);border:1px solid rgba(217,185,138,.3);border-radius:999px;padding:8px 16px 8px 8px;color:var(--soft);font-size:12px;cursor:pointer;font-family:inherit;backdrop-filter:blur(6px)}
+#music .ic{width:30px;height:30px;border-radius:50%;background:rgba(232,160,168,.15);display:grid;place-items:center;color:var(--rose);font-size:12px}
+#music.playing .ic{animation:beat 1.4s infinite}
+footer{padding:40px 20px;text-align:center;color:#6e625d;font-size:12px;letter-spacing:.12em}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- Put your song file next to this page and name it eastside.mp3 (or change the src below) -->
+<audio id="song" src="benny_blanco_Halsey_Khalid_-_Eastside_(mp3.pm).mp3" loop preload="auto"></audio>
+<button id="music" aria-label="Play or pause our song"><span class="ic" id="ic">▶</span><span id="mtxt">Play our song</span></button>
+
+<section class="screen" id="s1">
+  <div class="inner">
+    <svg class="heart reveal" viewBox="0 0 24 24" fill="none" stroke="#e8a0a8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.2-9.3C1.7 8 3.6 5 6.8 5c2 0 3.5 1 5.2 3 1.7-2 3.2-3 5.2-3 3.2 0 5.1 3 4 6.2-1.7 4.7-9.2 9.3-9.2 9.3z"/></svg>
+    <p class="kicker reveal">A message for you</p>
+    <h1 class="reveal">Sylvia,</h1>
+    <p class="lead reveal">Mrs Zawadi, I owe you a real apology, and I wanted to give it to you properly. Please take your time with this.</p>
+    <button class="btn reveal" data-goto="s2">Read it</button>
+  </div>
+</section>
+
+<section class="screen" id="s2">
+  <div class="inner">
+    <p class="kicker reveal">From my heart</p>
+    <div class="divider reveal"></div>
+
+    <!-- ===== YOUR APOLOGY GOES HERE =====
+         Replace the placeholder paragraphs below with your own words.
+         One <p> per paragraph. Keep the class names as they are. -->
+    <div class="letter reveal" id="apology">
+      <p>Heyy Baby, I just wrote this to apologise to you, and I want you to know how sorry I am🥹. I know I hurt you, but hurting the one person I love has never been my intent 😭.</p>
+      <p>Please take this as my apology, I'm sorry My Love. I also want you to know that I love you so much.And will never stop loving you.</p>
+      <p class="sig">With all my love,<br>Zawadi</p>
+    </div>
+    <!-- ===== END OF APOLOGY ===== -->
+
+    <button class="btn reveal" data-goto="s3">Continue</button>
+  </div>
+</section>
+
+<section class="screen" id="s3">
+  <div class="inner">
+    <p class="kicker reveal">Whenever you're ready</p>
+    <h2 class="reveal">However you feel is okay.</h2>
+    <p class="lead reveal">There's no pressure and no deadline. Whatever you choose, I'll respect it.</p>
+
+    <div class="choices reveal" id="choices">
+      <button class="btn rose" id="yes">I forgive you</button>
+      <button class="btn" id="time">I need some time</button>
+    </div>
+
+    <div class="outcome" id="o-yes">
+      <h2 class="serif" style="margin-top:34px;color:var(--rose)">Thank you, my love.</h2>
+      <p class="lead">I'm grateful for you, and I'll keep showing it. I love you, Sylvia.</p>
+    </div>
+    <div class="outcome" id="o-time">
+      <h2 class="serif" style="margin-top:34px">I understand baby.</h2>
+      <p class="lead">Take all the time you need. I'm still sorry, and I'll be here when you're ready.</p>
+    </div>
+  </div>
+</section>
+
+<footer>FOR SYLVIA &middot; FROM ZAWADI</footer>
+
+<script>
+(function(){
+  const $=(s)=>document.querySelector(s), $$=(s)=>[...document.querySelectorAll(s)];
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+  $$('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*.12+'s';io.observe(el)});
+  $$('[data-goto]').forEach(b=>b.addEventListener('click',()=>document.getElementById(b.dataset.goto).scrollIntoView({behavior:'smooth'})));
+
+  const song=$('#song'), btn=$('#music'), ic=$('#ic'), txt=$('#mtxt');
+  function ui(p){btn.classList.toggle('playing',p);ic.textContent=p?'❚❚':'▶';txt.textContent=p?'Eastside — Benny Blanco':'Play our song'}
+  btn.addEventListener('click',()=>{
+    if(song.paused){song.play().then(()=>ui(true)).catch(()=>{txt.textContent='Song file not found'})}
+    else{song.pause();ui(false)}
+  });
+
+  function pick(id){
+    $('#choices').style.display='none';
+    $(id).classList.add('on');
+    $('#s3').scrollIntoView({behavior:'smooth'});
+  }
+  $('#yes').addEventListener('click',()=>pick('#o-yes'));
+  $('#time').addEventListener('click',()=>pick('#o-time'));
+})();
+</script>
+</body>
+</html>
